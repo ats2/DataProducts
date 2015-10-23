@@ -1,0 +1,52 @@
+Data Products Project
+========================================================
+author: Allison Silcox
+date: 10/23/2015
+
+Newsletter Subscriptions app
+========================================================
+
+The Newsletter Subscriptions app lets the user select a brand and displays the population of newsletter subscribers over time. 
+
+The app lets you:  
+
+1. Select a brand to examine  
+2. Pick a range of dates to review  
+3. Choose to add a trend line to the line plot  
+4. Extend the forecast trend for up to 8 weeks  
+
+User selection Options
+========================================================
+
+Users can select from among the following 9 brands:
+
+```{r, echo=FALSE}
+rm(list = ls())
+setwd("C:\\Users\\atsilcox\\Dropbox\\Allison\\Coursera\\9_Data_Products\\Project")
+library(lubridate)
+library(shiny)
+library(ggplot2)
+data=read.csv("data.csv")
+data$WK_DATE=as.Date.POSIXct(dmy(data$WK_DATE))
+```
+
+```{r, echo=FALSE}
+levels(data$BRAND)
+```
+
+And use the slider to select dates within the included date range (weekly):
+
+```{r, echo=FALSE}
+min(data$WK_DATE)
+max(data$WK_DATE)
+```
+
+User Interface - actual values only
+========================================================
+
+![title](ShinyNews.png)
+
+User Interface - actuals with trend and forecast extension    
+========================================================    
+    
+![title](ShinyNewsX.png)

@@ -19,7 +19,6 @@ shinyUI(
     tabsetPanel(
       tabPanel("App",plotOutput("plot")),
       tabPanel("Documentation",includeMarkdown("Documentation.md"))
-      #tabPanel("Documentation","doc")
     )
     )
   )
